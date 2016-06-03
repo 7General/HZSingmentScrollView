@@ -1,7 +1,7 @@
 # HZSigmentView
 横向、可以移动的sigmentView，使用简单
 ### 看看效果
-![这里写图片描述](http://img.blog.csdn.net/20160526200722125)
+![这里写图片描述](http://img.blog.csdn.net/20160603172856243)
 
 ### 使用时一定要注意些上这样一句，或者在你的工程里添加上这样一句话
 ```objc

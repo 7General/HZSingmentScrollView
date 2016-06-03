@@ -10,7 +10,6 @@
 #define SCRHEIGHT [UIScreen mainScreen].bounds.size.height
 
 #import "MainViewController.h"
-//#import "HZSigmentView.h"
 #import "HZSigmentScrollView.h"
 
 

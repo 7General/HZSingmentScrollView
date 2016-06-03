@@ -1,5 +1,5 @@
-# HZSigmentView
-横向、可以移动的sigmentView，使用简单
+# HZSingmentScrollView
+横向、可以移动的HZSingmentScrollView，使用简单
 ### 看看效果
 ![这里写图片描述](http://img.blog.csdn.net/20160603172856243)
 
@@ -16,7 +16,9 @@ self.automaticallyAdjustsScrollViewInsets = NO;
 ### HZSigmentView的创建
 ```objc
     self.SingmentScrollView = [[HZSigmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
+    // 设置标题
     self.SingmentScrollView.titleScrollArrys = @[@"核桃",@"苹果"];
+    // 设置控制器
     self.SingmentScrollView.titleControllerArrys = @[@"firstViewController",@"secViewController"];
     [self.view addSubview:self.SingmentScrollView];
 ```

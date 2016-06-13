@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface secViewController : UIViewController
+@interface secViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end

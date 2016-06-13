@@ -28,6 +28,10 @@
  */
 -(void)segment:(HZSigmentView *)sengment didSelectColumnIndex:(NSInteger)index;
 
+
+
+//-(void)segment:(HZSigmentView *)sengment scrollMenuViewSelectedIndex:(NSInteger)index;
+
 @end
 
 
@@ -60,5 +64,6 @@
 
 -(instancetype)initWithOrgin:(CGPoint)origin andHeight:(CGFloat)height;
 
+- (void)scrollMenuViewSelectedoffsetX:(NSInteger)selectIndex;
 
 @end

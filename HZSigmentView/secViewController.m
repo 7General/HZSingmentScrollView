@@ -7,8 +7,14 @@
 //
 
 #import "secViewController.h"
+#import "TestViewController.h"
+
 
 @interface secViewController ()
+
+@property (nonatomic, strong) UITableView * myTableView;
+
+
 
 @end
 
@@ -16,24 +22,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"1555");
     self.view.backgroundColor = [UIColor yellowColor];
     self.title = @"4444444";
+    self.myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    self.myTableView.dataSource = self;
+    self.myTableView.delegate = self;
+    [self.view addSubview:self.myTableView];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGFloat tableOffectY = self.myTableView.contentOffset.y;
+//    NSLog(@"=========%f",tableOffectY);
+//}
+
+#pragma mark -TABLEVIEW DELEGATE
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString * ID = @"cell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    cell.textLabel.text = @"AAAAAAAAAAAAAA";
+    return cell;
 }
-*/
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    TestViewController * test = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:test animated:YES];
+
+}
 
 @end

@@ -10,6 +10,9 @@
 		25332EE21D0166960091F7F7 /* HZSigmentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25332EE11D0166960091F7F7 /* HZSigmentScrollView.m */; };
 		25332EE51D0177EE0091F7F7 /* firstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25332EE41D0177EE0091F7F7 /* firstViewController.m */; };
 		25332EE81D0177F80091F7F7 /* secViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25332EE71D0177F80091F7F7 /* secViewController.m */; };
+		259C03981D0E63BD00E80D11 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259C03971D0E63BD00E80D11 /* ThirdViewController.m */; };
+		259C039B1D0E676300E80D11 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259C039A1D0E676300E80D11 /* FourViewController.m */; };
+		259C03A11D0E98B200E80D11 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 259C03A01D0E98B200E80D11 /* TestViewController.m */; };
 		25CD2B181CF6E12C00AE499C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CD2B171CF6E12C00AE499C /* main.m */; };
 		25CD2B1B1CF6E12C00AE499C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CD2B1A1CF6E12C00AE499C /* AppDelegate.m */; };
 		25CD2B1E1CF6E12C00AE499C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CD2B1D1CF6E12C00AE499C /* ViewController.m */; };
@@ -46,6 +49,12 @@
 		25332EE41D0177EE0091F7F7 /* firstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstViewController.m; sourceTree = "<group>"; };
 		25332EE61D0177F80091F7F7 /* secViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secViewController.h; sourceTree = "<group>"; };
 		25332EE71D0177F80091F7F7 /* secViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = secViewController.m; sourceTree = "<group>"; };
+		259C03961D0E63BD00E80D11 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		259C03971D0E63BD00E80D11 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		259C03991D0E676300E80D11 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
+		259C039A1D0E676300E80D11 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
+		259C039F1D0E98B200E80D11 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		259C03A01D0E98B200E80D11 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		25CD2B131CF6E12C00AE499C /* HZSigmentView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HZSigmentView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CD2B171CF6E12C00AE499C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25CD2B191CF6E12C00AE499C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -174,6 +183,12 @@
 				25332EE41D0177EE0091F7F7 /* firstViewController.m */,
 				25332EE61D0177F80091F7F7 /* secViewController.h */,
 				25332EE71D0177F80091F7F7 /* secViewController.m */,
+				259C03961D0E63BD00E80D11 /* ThirdViewController.h */,
+				259C03971D0E63BD00E80D11 /* ThirdViewController.m */,
+				259C03991D0E676300E80D11 /* FourViewController.h */,
+				259C039A1D0E676300E80D11 /* FourViewController.m */,
+				259C039F1D0E98B200E80D11 /* TestViewController.h */,
+				259C03A01D0E98B200E80D11 /* TestViewController.m */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -321,9 +336,12 @@
 			files = (
 				25332EE81D0177F80091F7F7 /* secViewController.m in Sources */,
 				25CD2B1E1CF6E12C00AE499C /* ViewController.m in Sources */,
+				259C039B1D0E676300E80D11 /* FourViewController.m in Sources */,
 				25CD2B1B1CF6E12C00AE499C /* AppDelegate.m in Sources */,
 				25CD2B181CF6E12C00AE499C /* main.m in Sources */,
 				25332EE51D0177EE0091F7F7 /* firstViewController.m in Sources */,
+				259C03981D0E63BD00E80D11 /* ThirdViewController.m in Sources */,
+				259C03A11D0E98B200E80D11 /* TestViewController.m in Sources */,
 				25332EE21D0166960091F7F7 /* HZSigmentScrollView.m in Sources */,
 				25CD2B4D1CF6E1FB00AE499C /* MainViewController.m in Sources */,
 				25CD2B511CF6E2B800AE499C /* HZSigmentView.m in Sources */,

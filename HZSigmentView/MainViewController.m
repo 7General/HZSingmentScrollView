@@ -11,11 +11,19 @@
 
 #import "MainViewController.h"
 #import "HZSigmentScrollView.h"
+#import "secViewController.h"
+#import "firstViewController.h"
+#import "ThirdViewController.h"
+#import "FourViewController.h"
 
 
 
 @interface MainViewController ()
 @property (nonatomic, strong) HZSigmentScrollView * SingmentScrollView;
+@property (nonatomic, strong) firstViewController * fisrstVC;
+@property (nonatomic, strong) secViewController * secVC;
+@property (nonatomic, strong) ThirdViewController * thirdVC;
+@property (nonatomic, strong) FourViewController * fourVC;
 
 @end
 
@@ -54,17 +62,28 @@
 //    self.sigment.titleLineColor = [UIColor grayColor];
 //    [self.view addSubview:self.sigment];
 
-    
+    self.fisrstVC = [[firstViewController alloc] init];
+    self.secVC = [[secViewController alloc] init];
+    self.thirdVC = [[ThirdViewController alloc] init];
+    self.fourVC = [[FourViewController alloc] init];
     
     self.SingmentScrollView = [[HZSigmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
-    self.SingmentScrollView.titleScrollArrys = @[@"核桃",@"苹果"];
-    self.SingmentScrollView.titleControllerArrys = @[@"firstViewController",@"secViewController"];
+    // 设置标题
+    self.SingmentScrollView.titleScrollArrys = @[@"核桃",@"苹果",@"香蕉",@"荔枝"].mutableCopy;
+    // 设置控制器
+    self.SingmentScrollView.titleControllerArrys = @[self.fisrstVC,self.secVC,self.thirdVC,self.fourVC].mutableCopy;
     [self.view addSubview:self.SingmentScrollView];
     
-    
-    
+    for (UIViewController * vc in self.navigationController.viewControllers) {
+        NSLog(@"-----%@",vc);
+    }
+   
+  
     
 }
+
+
+
 //-(void)segment:(HZSigmentView *)sengment didSelectColumnIndex:(NSInteger)index {
 //    NSLog(@"-----%ld",index);
 //}

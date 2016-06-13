@@ -74,9 +74,7 @@
     self.SingmentScrollView.titleControllerArrys = @[self.fisrstVC,self.secVC,self.thirdVC,self.fourVC].mutableCopy;
     [self.view addSubview:self.SingmentScrollView];
     
-    for (UIViewController * vc in self.navigationController.viewControllers) {
-        NSLog(@"-----%@",vc);
-    }
+    
    
   
     

@@ -15,10 +15,11 @@
 #import "firstViewController.h"
 #import "ThirdViewController.h"
 #import "FourViewController.h"
+#import "TestViewController.h"
 
 
 
-@interface MainViewController ()
+@interface MainViewController ()<secViewControllerDelegate>
 @property (nonatomic, strong) HZSigmentScrollView * SingmentScrollView;
 @property (nonatomic, strong) firstViewController * fisrstVC;
 @property (nonatomic, strong) secViewController * secVC;
@@ -64,6 +65,7 @@
 
     self.fisrstVC = [[firstViewController alloc] init];
     self.secVC = [[secViewController alloc] init];
+    self.secVC.delegae = self;
     self.thirdVC = [[ThirdViewController alloc] init];
     self.fourVC = [[FourViewController alloc] init];
     
@@ -74,13 +76,13 @@
     self.SingmentScrollView.titleControllerArrys = @[self.fisrstVC,self.secVC,self.thirdVC,self.fourVC].mutableCopy;
     [self.view addSubview:self.SingmentScrollView];
     
-    
-   
-  
-    
 }
 
-
+-(void)didselectIndex:(NSInteger)indexRow {
+    NSLog(@"----%ld",indexRow);
+    TestViewController * test = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:test animated:YES];
+}
 
 //-(void)segment:(HZSigmentView *)sengment didSelectColumnIndex:(NSInteger)index {
 //    NSLog(@"-----%ld",index);

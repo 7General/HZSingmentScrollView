@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface HZSigmentScrollView : UIView<UIScrollViewDelegate>
 
 /**控制器Arry*/

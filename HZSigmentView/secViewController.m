@@ -54,13 +54,10 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,");
-   
-    TestViewController * test = [[TestViewController alloc] init];
     
-    // 包装一个导航栏控制器
-    UINavigationController * nav = [[UINavigationController alloc]   initWithRootViewController:test];
-    [self presentViewController:nav animated:YES completion:nil];
-
+    if (self.delegae && [self.delegae respondsToSelector:@selector(didselectIndex:)]) {
+        [self.delegae didselectIndex:indexPath.row];
+    }
 }
 
 @end

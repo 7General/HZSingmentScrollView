@@ -151,7 +151,7 @@
     
 
     // 重置横线位置
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:0.15 animations:^{
         self.bottomLine.frame = CGRectMake(0, self.menuHeight - 1, self.btnWidth, 1);
     }];
     
@@ -165,6 +165,7 @@
         [btn setTitleColor:self.titleColorNormal forState:UIControlStateNormal];
         [btn setTitleColor:self.titleColorSelect forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(btnTitleClick:) forControlEvents:UIControlEventTouchDown];
+        // 这里设置修改标题栏的背景颜色
         [btn setBackgroundColor:[UIColor whiteColor]];
         btn.titleLabel.font = _titleFont;
         [self.BackScrollView addSubview:btn];
@@ -190,7 +191,6 @@
         self.titleBtn = sender;
         self.defaultIndex = sender.tag;
     }
-    
     //计算偏移量
     CGFloat offsetX = sender.frame.origin.x - 2 * self.btnWidth;
     if (offsetX<0) {
@@ -200,14 +200,14 @@
     if (offsetX>maxOffsetX) {
         offsetX=maxOffsetX;
     }
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:0.15 animations:^{
         [self.BackScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
         self.bottomLine.frame=CGRectMake(sender.frame.origin.x, self.frame.size.height - 1, sender.frame.size.width, 1);
     }];
 }
 
 
-- (void)scrollMenuViewSelectedoffsetX:(NSInteger)selectIndex {
+- (void)scrollMenuViewSelectedoffsetX:(NSInteger)selectIndex withOffsetType:(BOOL)types {
     // 默认选中
     self.defaultIndex = selectIndex + 1;
     //计算偏移量
@@ -221,7 +221,10 @@
     }
     [UIView animateWithDuration:0.25 animations:^{
         [self.BackScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-        self.bottomLine.frame=CGRectMake(selectIndex * self.btnWidth , self.menuHeight - 1, self.btnWidth, 1);
+        if (types) {
+            self.bottomLine.frame=CGRectMake(selectIndex * self.btnWidth , self.menuHeight - 1, self.btnWidth, 1);    
+        }
+        
     }];
 }
 

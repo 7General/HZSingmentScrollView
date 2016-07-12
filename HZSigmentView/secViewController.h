@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol secViewControllerDelegate <NSObject>
+
+-(void)didselectIndex:(NSInteger )indexRow;
+
+@end
+
+
 @interface secViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, weak) id<secViewControllerDelegate>  delegae;
 
 @end

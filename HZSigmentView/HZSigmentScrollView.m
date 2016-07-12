@@ -9,12 +9,18 @@
 #import "HZSigmentScrollView.h"
 #import "HZSigmentView.h"
 
+
+
 @interface HZSigmentScrollView()<HZSigmentViewDelegate>
 /**操作console*/
 @property (nonatomic, strong) UIScrollView * BackScrollView;
 
 @property (nonatomic, strong) HZSigmentView * sigmentView;
 @property (nonatomic, assign) NSInteger  selectIndex;
+
+/**监听滑动类型*/
+@property (nonatomic, assign) BOOL  ScrollViewOffsetType;
+
 
 @end
 
@@ -69,10 +75,7 @@
     _BackScrollView.contentSize=CGSizeMake(DDMWIDTH * scrollCount, self.bounds.size.height-_sigmentView.bounds.size.height);
 //    _BackScrollView.contentSize=CGSizeMake(DDMWIDTH * self.titleScrollArrys.count, self.bounds.size.height-_sigmentView.bounds.size.height);
     
-    
-    
     for (NSInteger index = 0; index < scrollCount; index++) {
-        
         id  ctrol = titleControllerArrys[index];
         UIViewController * vcCtrol = (UIViewController *)ctrol;
         vcCtrol.view.frame = CGRectMake(index * DDMWIDTH, 0, DDMWIDTH, DDMHEIGHT - CGRectGetMaxY(self.sigmentView.frame));
@@ -81,15 +84,22 @@
 }
 
 -(void)segment:(HZSigmentView *)sengment didSelectColumnIndex:(NSInteger)index {
-    [self.BackScrollView setContentOffset:CGPointMake(DDMWIDTH* (index-1), 0) animated:YES];
+    [self.BackScrollView setContentOffset:CGPointMake(DDMWIDTH * (index-1), 0) animated:YES];
+    self.ScrollViewOffsetType = NO;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger scrollIndex =  (scrollView.contentOffset.x + DDMWIDTH * 0.5) / DDMWIDTH;
     if (self.selectIndex != scrollIndex) {
-       [self.sigmentView scrollMenuViewSelectedoffsetX:scrollIndex];
+        [self.sigmentView scrollMenuViewSelectedoffsetX:scrollIndex withOffsetType:self.ScrollViewOffsetType];
         self.selectIndex = scrollIndex;
     }
-    
-   
 }
+
+
+//开始拖拽视图
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+{
+    self.ScrollViewOffsetType = YES;
+}
+
 @end

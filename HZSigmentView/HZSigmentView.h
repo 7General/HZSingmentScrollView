@@ -15,6 +15,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class HZSigmentView;
 
 @protocol HZSigmentViewDelegate <NSObject>
@@ -37,6 +38,8 @@
 
 
 @interface HZSigmentView : UIView
+
+
 
 @property (nonatomic,strong) NSArray * titleArry;
 
@@ -64,6 +67,6 @@
 
 -(instancetype)initWithOrgin:(CGPoint)origin andHeight:(CGFloat)height;
 
-- (void)scrollMenuViewSelectedoffsetX:(NSInteger)selectIndex;
+- (void)scrollMenuViewSelectedoffsetX:(NSInteger)selectIndex withOffsetType:(BOOL)types;
 
 @end

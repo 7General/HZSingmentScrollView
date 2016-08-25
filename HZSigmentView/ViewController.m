@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MainViewController.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.backgroundColor = [UIColor redColor];
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    [btn addTarget:self action:@selector(clickAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+}
+
+-(void)clickAction {
+    MainViewController * main = [[MainViewController alloc] init];
+    [self.navigationController pushViewController:main animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

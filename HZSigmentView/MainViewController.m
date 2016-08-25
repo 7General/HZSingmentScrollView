@@ -75,7 +75,7 @@
     // 设置控制器
     self.SingmentScrollView.titleControllerArrys = @[self.fisrstVC,self.secVC,self.thirdVC,self.fourVC].mutableCopy;
     [self.view addSubview:self.SingmentScrollView];
-    
+    self.SingmentScrollView.SelectDefaultIndex = 3;
 }
 
 -(void)didselectIndex:(NSInteger)indexRow {

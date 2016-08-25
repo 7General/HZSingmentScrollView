@@ -71,4 +71,7 @@
 
 - (void)scrollMenuViewSelectedoffsetX:(NSInteger)selectIndex withOffsetType:(BOOL)types;
 
+/**修改下划线和控制器*/
+-(void)selectDefaultBottomAndVC:(NSInteger)DefaultIndex;
+
 @end

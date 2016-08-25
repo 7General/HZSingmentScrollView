@@ -205,6 +205,25 @@
 
 }
 
+-(void)selectDefaultBottomAndVC:(NSInteger)DefaultIndex {
+    UIButton * sender = [self.btnArrys objectAtIndex:DefaultIndex - 1];
+    //计算偏移量
+    CGFloat offsetX = sender.frame.origin.x - 2 * self.btnWidth;
+    if (offsetX<0) {
+        offsetX=0;
+    }
+    CGFloat maxOffsetX= self.BackScrollView.contentSize.width - DDMWIDTH;
+    if (offsetX>maxOffsetX) {
+        offsetX=maxOffsetX;
+    }
+    [UIView animateWithDuration:0.15 animations:^{
+        [self.BackScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+        self.bottomLine.frame=CGRectMake(sender.frame.origin.x, self.frame.size.height - BottomLineHeight, sender.frame.size.width, BottomLineHeight);
+    }];
+}
+
+
+
 
 - (void)scrollMenuViewSelectedoffsetX:(NSInteger)selectIndex withOffsetType:(BOOL)types {
     // 默认选中

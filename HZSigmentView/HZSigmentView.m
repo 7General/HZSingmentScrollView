@@ -120,16 +120,18 @@
     }
 }
 
+/**懒加载底部横线*/
 -(UIView *)bottomLine {
     if (!_bottomLine) {
-        _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.menuHeight - 1, self.btnWidth, 1)];
-        _bottomLine.backgroundColor = self.titleLineColor;//DDMColor(10, 108, 255);
+        _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.menuHeight - BottomLineHeight, self.btnWidth, BottomLineHeight)];
+        _bottomLine.backgroundColor = self.titleLineColor;
         [_BackScrollView addSubview:_bottomLine];
     }
     return _bottomLine;
 }
 
 
+/**画标题*/
 -(void)setTitleArry:(NSArray *)titleArry {
     if (!titleArry) return;
     
@@ -140,26 +142,22 @@
         self.btnWidth = DDMWIDTH / 5;
     }
     
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.menuHeight - 1, self.btnWidth * _titleArry.count, 1)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.menuHeight - BottomLineHeight, self.btnWidth * _titleArry.count, BottomLineHeight)];
     line.backgroundColor = self.bottomLineColor;
     line.tag = 1100;
     [self.BackScrollView addSubview:line];
     
-    //self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.menuHeight - 1, self.btnWidth, 1)];
-    //self.bottomLine.backgroundColor = self.titleLineColor;//DDMColor(10, 108, 255);
-    //[self.BackScrollView addSubview:self.bottomLine];
-    
 
     // 重置横线位置
     [UIView animateWithDuration:0.15 animations:^{
-        self.bottomLine.frame = CGRectMake(0, self.menuHeight - 1, self.btnWidth, 1);
+        self.bottomLine.frame = CGRectMake(0, self.menuHeight - BottomLineHeight, self.btnWidth, BottomLineHeight);
     }];
     
     self.BackScrollView.contentSize = CGSizeMake(self.btnWidth * _titleArry.count, self.menuHeight);
     
     for (int i=0; i<_titleArry.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(self.btnWidth * i, 0, self.btnWidth, self.menuHeight - 1);
+        btn.frame = CGRectMake(self.btnWidth * i, 0, self.btnWidth, self.menuHeight - BottomLineHeight);
         btn.tag = i + 1;
         [btn setTitle:_titleArry[i] forState:UIControlStateNormal];
         [btn setTitleColor:self.titleColorNormal forState:UIControlStateNormal];
@@ -202,8 +200,9 @@
     }
     [UIView animateWithDuration:0.15 animations:^{
         [self.BackScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-        self.bottomLine.frame=CGRectMake(sender.frame.origin.x, self.frame.size.height - 1, sender.frame.size.width, 1);
+        self.bottomLine.frame=CGRectMake(sender.frame.origin.x, self.frame.size.height - BottomLineHeight, sender.frame.size.width, BottomLineHeight);
     }];
+
 }
 
 
@@ -222,10 +221,10 @@
     [UIView animateWithDuration:0.25 animations:^{
         [self.BackScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
         if (types) {
-            self.bottomLine.frame=CGRectMake(selectIndex * self.btnWidth , self.menuHeight - 1, self.btnWidth, 1);    
+            self.bottomLine.frame=CGRectMake(selectIndex * self.btnWidth , self.menuHeight - BottomLineHeight, self.btnWidth, BottomLineHeight);
         }
-        
     }];
+
 }
 
 @end

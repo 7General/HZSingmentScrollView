@@ -73,7 +73,6 @@
     }
     NSInteger scrollCount = titleControllerArrys.count;
     _BackScrollView.contentSize=CGSizeMake(DDMWIDTH * scrollCount, self.bounds.size.height-_sigmentView.bounds.size.height);
-//    _BackScrollView.contentSize=CGSizeMake(DDMWIDTH * self.titleScrollArrys.count, self.bounds.size.height-_sigmentView.bounds.size.height);
     
     for (NSInteger index = 0; index < scrollCount; index++) {
         id  ctrol = titleControllerArrys[index];

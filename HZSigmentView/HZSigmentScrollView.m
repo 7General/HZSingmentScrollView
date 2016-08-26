@@ -85,6 +85,16 @@
     }
 }
 
+- (void)dealloc
+{
+    [self unregisterFromKVO];
+}
+- (void)unregisterFromKVO {
+    for (NSString *keyPath in [self observableKeypaths]) {
+        [self removeObserver:self forKeyPath:keyPath];
+    }
+}
+
 
 -(void)setTitleScrollArrys:(NSMutableArray *)titleScrollArrys {
     if (_titleControllerArrys == titleScrollArrys) {

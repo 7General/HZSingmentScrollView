@@ -85,6 +85,7 @@
             if (btn.tag-1 == self.defaultIndex-1) {
                 self.titleBtn=btn;
                 btn.selected=YES;
+                [self selectDefaultBottomAndVC:self.defaultIndex];
             }else{
                 btn.selected=NO;
             }

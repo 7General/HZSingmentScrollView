@@ -18,7 +18,6 @@
 @property (nonatomic, assign) NSInteger  selectIndex;
 
 
-
 /**监听滑动类型*/
 @property (nonatomic, assign) BOOL  ScrollViewOffsetType;
 
@@ -77,16 +76,16 @@
 - (void)updateUIForKeypath:(NSString *)keyPath {
     if([keyPath isEqualToString:@"SelectDefaultIndex"]) {
         /**1：改变item默认选项*/
-        self.sigmentView.defaultIndex = self.SelectDefaultIndex;
-        /**2：改变下划线位置默认选项*/
-        [self.sigmentView selectDefaultBottomAndVC:self.SelectDefaultIndex];
+//        self.sigmentView.defaultIndex = self.SelectDefaultIndex;
+//        self.ScrollViewOffsetType = YES;
+//        /**2：改变下划线位置默认选项*/
+//        [self.sigmentView selectDefaultBottomAndVC:self.SelectDefaultIndex];
         /**3：改变内容*/
-        [self.BackScrollView setContentOffset:CGPointMake(DDMWIDTH * (self.SelectDefaultIndex-1), 0) animated:YES];
+//        [self.BackScrollView setContentOffset:CGPointMake(DDMWIDTH * (self.SelectDefaultIndex-1), 0) animated:YES];
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [self unregisterFromKVO];
 }
 - (void)unregisterFromKVO {
@@ -125,7 +124,7 @@
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger scrollIndex =  (scrollView.contentOffset.x + DDMWIDTH * 0.5) / DDMWIDTH;
-    if (self.selectIndex != scrollIndex) {
+    if (self.selectIndex != scrollIndex && self.ScrollViewOffsetType) {
         [self.sigmentView scrollMenuViewSelectedoffsetX:scrollIndex withOffsetType:self.ScrollViewOffsetType];
         self.selectIndex = scrollIndex;
     }
@@ -133,8 +132,7 @@
 
 
 //开始拖拽视图
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.ScrollViewOffsetType = YES;
 }
 
